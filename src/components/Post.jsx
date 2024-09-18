@@ -2,7 +2,8 @@ import styles from "./Post.module.css";
 import { Comment } from "./Comment";
 import { Avatar } from "./Avatar";
 
-export function Post() {
+export function Post(props) {
+  console.log(props);
   return (
     <article className={styles.post}>
       <header>
@@ -17,19 +18,7 @@ export function Post() {
           Publicado há 1h
         </time>
       </header>
-      <div className={styles.content}>
-        <p>Fala galera 🙌</p>
-        <p>
-          Acabei de subir um projeto no meu portifa. É um projeto que fiz no NLW
-        </p>
-        <p>
-          👉 <a href=""> jane.design/doctorcare </a>
-        </p>
-        <p>
-          <a href=""> #novoprojeto</a> <a href=""> #nlw </a>
-          <a href=""> #rocketseat</a>
-        </p>
-      </div>
+      <div className={styles.content}></div>
       <form className={styles.commentForm}>
         <strong>Deixe o seu feedback</strong>
 

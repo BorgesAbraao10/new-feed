@@ -6,6 +6,53 @@ import styles from "./App.module.css";
 
 import "./global.css";
 
+// author: { avatar_url: '', name: '', role: ''}
+// publisheadAt: Date
+// content: String
+
+const posts = [
+  {
+    id: 1,
+    author: {
+      avatarUrl: "https://avatars.githubusercontent.com/u/126275703?v=4",
+      name: "Abraão Borges",
+      role: "CTO Borges</>Tech",
+    },
+    content: [
+      { type: "paragraph", content: "Fala galera 🙌" },
+
+      {
+        type: "paragraph",
+        content:
+          "Acabei de subir um projeto no meu portifa. É um projeto que fiz no NLW",
+      },
+
+      { type: "link", content: "jane.design/doctorcare" },
+    ],
+    publisheadAt: new Date("2024-09-02 20:00:00"),
+  },
+  {
+    id: 2,
+    author: {
+      avatarUrl: "https://github.com/maykbrito.png",
+      name: "Maik brito",
+      role: "Educador Borges</>Tech",
+    },
+    content: [
+      { type: "paragraph", content: "Fala galera 🙌" },
+
+      {
+        type: "paragraph",
+        content:
+          "Acabei de subir um projeto no meu portifa. É um projeto que fiz no NLW",
+      },
+
+      { type: "link", content: "jane.design/doctorcare" },
+    ],
+    publisheadAt: new Date("2024-09-10 15:00:00"),
+  },
+];
+
 function App() {
   return (
     <div>
@@ -14,17 +61,15 @@ function App() {
       <div className={styles.wrapper}>
         <Sidebar />
         <main>
-          <Post
-            author="Abraão Borges"
-            content="Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
-        Voluptates nobis ullam repellendus minima fugiat vero iure qui ab velit, 
-        fugit amet vel excepturi unde a alias impedit exercitationem similique nulla?"
-          />
-
-          <Post
-            author="Ana Clara"
-            content="Um Post muito legal acompanhe minhas redes sociais"
-          />
+          {posts.map((post) => {
+            return (
+              <Post
+                author={post.author}
+                content={post.content}
+                publisheadAt={post.publisheadAt}
+              />
+            );
+          })}
         </main>
       </div>
     </div>
